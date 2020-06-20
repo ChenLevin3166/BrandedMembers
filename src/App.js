@@ -100,7 +100,7 @@ export default class App extends Component {
             <Route exact path='/productManagement' component={() => { return <ProductManagement prod={this.state.products} addProd={this.aProd} delProd={this.dProd} /> }} />
             <Route exact path='/members' component={() => { return <Members aMem={this.state.members} delete={this.del} /> }} />
             <Route exact path='/cart' component={() => { return <Cart cartA={this.state.cart} delFcart={this.delC} sum={this.state.sumP} /> }} />
-            <Route exact path='/buy' component={() => { return <Buy delFromcart={() => { this.setState({ cart: [] }) }} /> }} />
+            <Route exact path='/buy' component={() => { return <Buy delFromcart={() => { this.setState({ cart: [] }) this.setState({sumP:0})} /> }} />
           </Switch>
         </Router>
 
