@@ -18,7 +18,7 @@ import SleepBag1 from './components/images/SleepBag1.jpg'; import SleepBag2 from
 import SleepBag3 from './components/images/SleepBag3.jpg'; import SleepBag4 from './components/images/SleepBag4.jpg';
 import tent1 from './components/images/tent1.jpg'; import tent2 from './components/images/tent2.jpg';
 import tent3 from './components/images/tent3.jpg'; import tent4 from './components/images/tent4.jpg';
-import backImg from './backImg.jpg';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -32,7 +32,6 @@ export default class App extends Component {
       { value: "1", pName: "Red sleeping bag", cost: "55", img: SleepBag3 }, { value: "2", pName: "Luxury tent", cost: "200", img: tent3 }, { value: "3", pName: "Backpack", cost: "70", img: bag3 }, { value: "4", pName: "Simple hand flashlight", cost: "15", img: fLight3 },
       { value: "1", pName: "Fancy sleeping bag", cost: "70", img: SleepBag4 }, { value: "2", pName: "Couple tent", cost: "150", img: tent4 }, { value: "3", pName: "Trio of luggage", cost: "220", img: bag4 }, { value: "4", pName: "Strong hand flashlight", cost: "30", img: fLight4 }],
       cart: [],
-      backImg: ` url(${backImg})`,
       sumP: 0
     }
   }
@@ -100,7 +99,7 @@ export default class App extends Component {
             <Route exact path='/productManagement' component={() => { return <ProductManagement prod={this.state.products} addProd={this.aProd} delProd={this.dProd} /> }} />
             <Route exact path='/members' component={() => { return <Members aMem={this.state.members} delete={this.del} /> }} />
             <Route exact path='/cart' component={() => { return <Cart cartA={this.state.cart} delFcart={this.delC} sum={this.state.sumP} /> }} />
-            <Route exact path='/buy' component={() => { return <Buy delFromcart={() => { this.setState({ cart: [] }) }} /> }} />
+            <Route exact path='/buy' component={() => { return <Buy delFromcart={() => { this.setState({ cart: [] });this.setState({sumP:0}) }} /> }} />
           </Switch>
         </Router>
 
